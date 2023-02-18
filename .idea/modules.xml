@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/BillingService/BillingService.iml" filepath="$PROJECT_DIR$/BillingService/BillingService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Custo/CustomerService.iml" filepath="$PROJECT_DIR$/Custo/CustomerService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/InventoryService/InventoryService.iml" filepath="$PROJECT_DIR$/InventoryService/InventoryService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/controle jee.iml" filepath="$PROJECT_DIR$/.idea/controle jee.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eureka-discovery/eureka-discovery.iml" filepath="$PROJECT_DIR$/eureka-discovery/eureka-discovery.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gateway/gateway.iml" filepath="$PROJECT_DIR$/gateway/gateway.iml" />
+    </modules>
+  </component>
+</project>

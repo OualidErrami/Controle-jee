@@ -24,14 +24,15 @@ public class BillingRestcontroller {
         this.billRepository = billRepository;
         this.productItemRepository = productItemRepository;
     }
+
     @GetMapping(path = "/fullBill/{id}")
-    public Bill getbill(@PathVariable(name = "id") Long id){
-        Bill bill=billRepository.findById(id).get();
-        Customer customer=customerRestClient.getCustomerbyid(bill.getCustomerID());
+    public Bill getbill(@PathVariable(name = "id") Long id) {
+        Bill bill = billRepository.findById(id).get();
+        Customer customer = customerRestClient.getCustomerbyid(bill.getCustomerID());
         bill.setCustomer(customer);
         bill.getProductItems().forEach(
-                pi->{
-                    Product product =productRestClient.getProductById(pi.getProduct_ID());
+                pi -> {
+                    Product product = productRestClient.getProductById(pi.getProduct_ID());
                     pi.setProduct(product);
 
                 }

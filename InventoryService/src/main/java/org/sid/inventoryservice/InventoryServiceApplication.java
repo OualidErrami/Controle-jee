@@ -11,12 +11,16 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
-import org.springframework.web.bind.annotation.CrossOrigin;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+@RepositoryRestResource
+interface ProductRepository extends JpaRepository<Product, Long> {
+
+}
 
 @SpringBootApplication
 public class InventoryServiceApplication {
@@ -26,12 +30,12 @@ public class InventoryServiceApplication {
     }
 
     @Bean
-    CommandLineRunner start(ProductRepository productRepository, RepositoryRestConfiguration restConfiguration){
+    CommandLineRunner start(ProductRepository productRepository, RepositoryRestConfiguration restConfiguration) {
         restConfiguration.exposeIdsFor(Product.class);
         return args -> {
-            productRepository.save(new Product(null,"ordinateur",788,12));
-            productRepository.save(new Product(null,"imprimate",88,14));
-            productRepository.save(new Product(null,"smartPhone",200,30));
+            productRepository.save(new Product(null, "ordinateur", 788, 12));
+            productRepository.save(new Product(null, "imprimate", 88, 14));
+            productRepository.save(new Product(null, "smartPhone", 200, 30));
             productRepository.findAll().forEach(product -> {
                 System.out.println(product.toString());
             });
@@ -40,15 +44,15 @@ public class InventoryServiceApplication {
 }
 
 @Entity
-@Data @NoArgsConstructor @AllArgsConstructor @ToString
-class Product{
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
+class Product {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private double price;
     private double quantity;
-}
-@RepositoryRestResource
-interface ProductRepository extends JpaRepository<Product,Long>{
-
 }
